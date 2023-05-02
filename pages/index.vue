@@ -10,6 +10,66 @@
 <script>
 export default {
   name: "IndexPage",
+  methods: {
+    setCss(){
+      // this.$el.style.setProperty('font-variation-settings', '"wght" '+this.weight+', "wdth" '+this.width+', "slnt" '+this.slant)
+    },
+    updateText(text){
+      if(text.key == "Backspace"){
+        this.$store.dispatch("resetText")
+      } else if (text.key == "Enter"){
+        this.$store.dispatch("addCharText", "\n\r")
+      }
+      else{
+        this.$store.dispatch("addCharText", text.key)
+      }
+    }
+  },
+  computed: {
+    weight(){
+      return this.$store.getters.getFontWeight
+    },
+    width(){
+      return this.$store.getters.getFontWidth
+    },
+    slant(){
+      return this.$store.getters.getFontSlant
+    }
+  },
+  watch: {
+    weight: {
+      handler(){
+        this.$el.style.setProperty('--weight', ((this.weight*2)-1)*900)
+        this.setCss()
+      },
+      // immediate: true
+    },
+    width: {
+      handler(){
+        this.$el.style.setProperty('--width', ((this.width*2)-1)*900)
+        this.setCss()
+      },
+      // immediate: true
+    },
+    slant: {
+      handler(){
+        this.$el.style.setProperty('--slant', this.slant*900)
+        this.setCss()
+      },
+      // immediate: true
+    }
+  },
+  mounted(){
+    console.log(this.$el.style)
+    this.$el.style.setProperty('--weight', this.weight)
+    this.$el.style.setProperty('--width', this.width)
+    this.$el.style.setProperty('--slant', this.slant)
+
+    window.addEventListener("keyup", this.updateText)
+  },
+  unmounted(){
+    window.removeEventListener("keyup", this.updateText)
+  }
 };
 </script>
 
@@ -44,6 +104,7 @@ export default {
   // Sections
   .tl {
     grid-area: tl;
+    overflow: hidden;
   }
   .tr {
     grid-area: tr;
