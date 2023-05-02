@@ -15,10 +15,13 @@ export default {
       // this.$el.style.setProperty('font-variation-settings', '"wght" '+this.weight+', "wdth" '+this.width+', "slnt" '+this.slant)
     },
     updateText(text){
+      console.log(text)
       if(text.key == "Backspace"){
         this.$store.dispatch("resetText")
       } else if (text.key == "Enter"){
         this.$store.dispatch("addCharText", "\n\r")
+      }else if (text.key.length > 1){
+        
       }
       else{
         this.$store.dispatch("addCharText", text.key)
