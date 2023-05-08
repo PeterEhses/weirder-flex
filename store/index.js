@@ -1,5 +1,5 @@
 export const state = () => ({
-    fontWeight: 0,
+    fontWeight: .5,
     fontWidth: .5,
     fontSlant: 0,
     text: "TYPE SOMETHING",
