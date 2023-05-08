@@ -1,4 +1,4 @@
-# weird-flex
+# tangible type
 
 ## Build Setup
 

@@ -1,8 +1,8 @@
 export const state = () => ({
-    fontWeight: .5,
+    fontWeight: 0,
     fontWidth: .5,
     fontSlant: 0,
-    text: "CHANGE ME IF YOU FIND ME ;)",
+    text: "TYPE SOMETHING",
 })
 
 export const getters = {

@@ -1,9 +1,9 @@
 <template>
   <div id="view-grid">
     <VarText class="tl" />
-    <Sliders class="bl" />
-    <QRCode class="tr" />
-    <Stats class="br" />
+    <Stats class="bl" />
+    <Description class="tr" />
+    <QR class="br" />
   </div>
 </template>
 
@@ -79,7 +79,7 @@ export default {
 <style lang="scss">
 @font-face {
   font-family: tangibleFont;
-  src: url(/tangibleFont_1.2.7VF.woff2);
+  src: url(/tangibleFont_2.0VF.woff2);
 }
 
 #view-grid {
@@ -87,7 +87,7 @@ export default {
   --smaller-width-height: min(1vw, 1vh);
 
   // normalize fit Viewport
-  font-family: tangibleFont;
+  font-family: Helvetica, sans-serif;
   display: grid;
   width: 100vw;
   height: 100vh;
@@ -100,26 +100,166 @@ export default {
   position: absolute;
 
   // Grid Setup
-  grid-template-columns: [l] auto [c] calc(var(--smaller-width-height) * 25) [r];
-  grid-template-rows: [t] auto [c] calc(var(--smaller-width-height) * 25) [b];
+  grid-template-columns: [l] auto [c] calc(var(--smaller-width-height) * 30) [r];
+  grid-template-rows: [t] auto [c] calc(var(--smaller-width-height) * 30) [b];
   grid-template-areas: "tl tr" "bl br";
 
   // Sections
   .tl {
+    font-family: tangibleFont;
     grid-area: tl;
     overflow: hidden;
+    border-color: black;
+    border-bottom: solid;
+    border-right: solid;
+    border-width: 2px;
   }
   .tr {
     grid-area: tr;
-    background: lightgrey;
+    border-bottom: solid;
+    border-color: black;
+    border-width: 2px;
+    padding: 2em;
   }
   .bl {
     grid-area: bl;
-    background: lightgrey;
+    border-right: solid;
+    border-color: black;
+    border-width: 2px;
   }
   .br {
     grid-area: br;
-    background: grey;
   }
 }
+
+//specific style for components
+
+.stats {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.slider {
+  text-align:center;
+}
+
+p {
+  margin-top: 1vw;
+  font-weight: bold;
+}
+
+.value_label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1em;
+  color: black;
+  font-weight: 400;
+}
+
+.range {
+  width: 20vw;
+  height: 2px;
+  appearance: none;
+  background: black;
+  outline: black;
+}
+
+.range::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border-width: 2px;
+  background: white;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.vartext {
+  font-size: calc(4vw + 4vh + 2vmin); //10vw;
+  font-variation-settings: "wght" var(--weight), "wdth" var(--width), "slnt" var(--slant);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  word-break: break-word;
+  //hyphens: auto;
+}
+
+.qr {
+  display: grid;
+  place-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding-top: 1em;
+}
+
+.text {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  white-space: pre-line;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.footer { //save for a later date
+  border-top: solid;
+  border-width: 2px;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100vw;
+  height: 4vh;
+  text-align: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.lead {
+ font-weight: bold;
+ //font-style: italic;
+}
+
+.nametag {
+  font-weight: bold;
+}
+
+//adjustments for mobile viewport
+@media screen and (max-width: 760px) {
+  .tr, .br {
+    visibility: hidden;
+    clear: both;
+    display: none;
+  }
+
+  .tl, .bl {
+    width: 100vw;
+  }
+
+}
+
+@media screen and (max-height: 780px) {
+  .tr, .br {
+    visibility: hidden;
+    clear: both;
+    display: none;
+  }
+
+  .tl, .bl {
+    width: 100vw;
+  }
+
+}
+
 </style>
