@@ -87,7 +87,8 @@ export default {
   --smaller-width-height: min(1vw, 1vh);
 
   // normalize fit Viewport
-  font-family: Helvetica, sans-serif;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 300;
   display: grid;
   width: 100vw;
   height: 100vh;
