@@ -262,4 +262,17 @@ p {
 
 }
 
+
+@media print {
+
+#view-grid{
+  .tr, .br{
+    display: none;
+  }
+  .tl, .bl{
+    grid-column-start: l;
+    grid-column-end: r;
+  }
+}
+}
 </style>
