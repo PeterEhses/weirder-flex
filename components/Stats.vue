@@ -3,7 +3,7 @@
     
     <div class="slider">
 
-      <div class="value_label">{{((weight*2)-1)*900}}</div>
+      <div class="value_label">{{Math.round(((weight*2)-1)*900)}}</div>
       <input class="range" type="range" name="width" id="Sl-Weight" value="0" min="0" max="1" step=".0001" v-model="weight" />
       <p>Weight</p>
 
@@ -11,7 +11,7 @@
 
     <div class="slider">
 
-      <div class="value_label">{{((width*2)-1)*900}}</div>
+      <div class="value_label">{{Math.round(((width*2)-1)*900)}}</div>
       <input class="range" type="range" name="slant" id="Sl-Width" value="450" min="0" max="1" step=".0001" v-model="width"/>
       <p>Width</p>
     
@@ -19,7 +19,7 @@
   
     <div class="slider">
   
-      <div class="value_label">{{slant*900}}</div>
+      <div class="value_label">{{Math.round(slant*900)}}</div>
       <input class="range" type="range" name="weight" id="Sl-Slant" value="0" min="0" max="1" step=".0001" v-model="slant"/>
       <p>Slant</p>
   
