@@ -19,7 +19,7 @@ export default {
       if(text.key == "Backspace"){
         this.$store.dispatch("resetText")
       } else if (text.key == "Enter"){
-        this.$store.dispatch("addCharText", "\n\r")
+        window.print();
       }else if (text.key.length > 1){
         
       }
@@ -275,5 +275,12 @@ p {
     grid-column-end: r;
   }
 }
+}
+
+@page {
+    size: A4 landscape;
+    margin: 0;
+    -webkit-print-color-adjust: exact;  /* Chrome/Safari/Edge/Opera */
+                   color-adjust: exact;  /* Firefox */
 }
 </style>
