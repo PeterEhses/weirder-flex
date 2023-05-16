@@ -81,10 +81,10 @@ const joymap = createJoymap({
 
     forEach((module) => {
       if( module.getPadId() === 'Unknown Gamepad (Vendor: e502 Product: bbab)'){
-        self.width = (module.getAllSticks()['L'].value[0]/2)+.5
-        self.slant= module.getAllButtons()['L2'].value
-        self.weight = (module.getAllSticks()['L'].value[1]/-2)+.5
-        // console.log([...module.getAllSticks()['L'].value, module.getAllButtons()['L2'].value])
+        self.width = (module.getAllSticks()['L'].value[1])+.5
+        self.slant= -module.getAllSticks()['R'].value[0]
+        self.weight = ((module.getAllSticks()['L'].value[0])-.5)*(1/.3)
+        // console.log([module.getAllSticks(), module.getAllButtons()])
       }
     }, joymap.getModules());
   },
