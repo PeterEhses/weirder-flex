@@ -1,6 +1,6 @@
 <template>
    <div class="stats">
-    
+
     <div class="slider">
 
       <div class="value_label">{{Math.round(((weight*2)-1)*900)}}</div>
@@ -14,15 +14,15 @@
       <div class="value_label">{{Math.round(((width*2)-1)*900)}}</div>
       <input class="range" type="range" name="slant" id="Sl-Width" value="450" min="0" max="1" step=".0001" v-model="width"/>
       <p>Width</p>
-    
+
     </div>
-  
+
     <div class="slider">
-  
+
       <div class="value_label">{{Math.round(slant*900)}}</div>
       <input class="range" type="range" name="weight" id="Sl-Slant" value="0" min="0" max="1" step=".0001" v-model="slant"/>
       <p>Slant</p>
-  
+
     </div>
 
   </div>
@@ -80,7 +80,7 @@ const joymap = createJoymap({
     }
 
     forEach((module) => {
-      if( module.getPadId() === 'Unknown Gamepad (STANDARD GAMEPAD Vendor: 18d1 Product: 9400)'){
+      if( module.getPadId() === 'Unknown Gamepad (Vendor: e502 Product: bbab)'){
         self.width = (module.getAllSticks()['L'].value[0]/2)+.5
         self.slant= module.getAllButtons()['L2'].value
         self.weight = (module.getAllSticks()['L'].value[1]/-2)+.5
