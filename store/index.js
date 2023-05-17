@@ -2,7 +2,7 @@ export const state = () => ({
     fontWeight: .5,
     fontWidth: .5,
     fontSlant: 0,
-    text: "TYPE SOMETHING",
+    text: "",
 })
 
 export const getters = {

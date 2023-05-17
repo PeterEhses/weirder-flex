@@ -6,7 +6,12 @@
 export default {
   computed: {
     text(){
-      return this.$store.getters.getText
+      let text = this.$store.getters.getText
+      if (text == "") {
+        return "TYPE SOMETHING"
+      } else {
+        return text
+      }
     }
   }
 }
